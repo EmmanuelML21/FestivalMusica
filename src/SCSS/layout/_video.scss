@@ -1,0 +1,46 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.video{
+    position: relative; //para que el video se valla al fondo y sea nuestro panel de referncia para el absolute
+    min-height: 50rem;//solo ocuper como minimo
+    max-height: 70rem;//el maximo tamaño que puede alcanzar
+    overflow: hidden;//lo de sobra del video se recorte
+    .overlay{
+        position: absolute;//el h2 y p esten por encima del video
+        //se vea color morado trasparente/degradado
+        background:linear-gradient(
+            270deg,
+            rgba(v.$morado, 60%),
+            rgba(color.adjust(v.$morado,$lightness:-30%), 90%)
+            );
+        inset: 0;//ocupe todo el espacio
+        display: flex;
+        align-items: center;
+    }
+    video{
+        display: block;
+        width: auto;//ocupe el espacio disponible
+        @include m.desktop{
+            width: 100%;
+        }
+    }
+}
+.contenedor-video{
+    z-index: 10;//para poder seleccionar el h2 y p
+    h2{
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0;
+    }
+    p{
+        background-color: v.$rosa;
+        display: inline-block;//para que solo ocupe el espacio con caracteres
+        padding: 1rem 2rem;
+        color: v.$blanco;
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin: 0;
+    }
+}

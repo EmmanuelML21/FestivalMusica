@@ -1,0 +1,37 @@
+@use 'base/variables' as v;
+
+@mixin telefono{
+    @media(min-width: v.$telefono){
+        @content;//sea dinamico que lea donde esta y que le vamos aplicar al mq
+    }
+}
+@mixin tablet{
+    @media(min-width: v.$tablet){
+        @content;//sea dinamico que lea donde esta y que le vamos aplicar al mq
+    }
+}
+@mixin desktop{
+    @media(min-width: v.$desktop){
+        @content;//sea dinamico que lea donde esta y que le vamos aplicar al mq
+    }
+}
+@mixin desktopXL{
+    @media(min-width: v.$desktopXL){
+        @content;//sea dinamico que lea donde esta y que le vamos aplicar al mq
+    }
+}
+@mixin contenedor{
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;//centrar
+}
+@mixin grid($columnas: 1, $gap: 5rem){
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $gap;
+}
+@mixin resetear-lista{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
